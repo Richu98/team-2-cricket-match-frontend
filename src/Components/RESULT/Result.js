@@ -34,10 +34,10 @@ class Result extends Component {
         </div>
     </div>
     <div className="score">
-         <h1>SCORE OF A :__</h1><h1>SCORE OF B :__</h1>
+         <h1>SCORE OF A :30</h1><h1>SCORE OF B :25</h1>
     </div>
     <div className="wins">
-        <h1>Congo!!</h1> <h1>A-B win by __ score</h1>
+        <h1>Congo!!</h1> <h1>A wins by 5 score</h1>
     </div>
     </>
     )
