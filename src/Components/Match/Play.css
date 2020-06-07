@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+*{ box-sizing: content-box; font-family:  'Lato', sans-serif;}
+#heading{font-size: xx-large;font-weight: 900;}
+
+
+.basic{color: #be94f1;background-color:#a4a1c2;border-radius: 8px;transform: translateX();background-image: url('./balll.jpg');}
+.black{ height: 100%; width: 100%;   background-color: rgba(0, 0, 0, 0.3);}
+#details{color:white; background-color: #17c5d1;  padding: 0 25px; height: 100%; width: 100%;text-align: center; border-style: solid; border-width: 2px; background-image: url('./wall.jpg'); }
+/*.black{ height: 100%; width: 100%;   background-color: rgba(0, 0, 0,0.3);}*/
+    /*background-color:yellowgreen;*/
+.status{display:flex; justify-content: space-around;color:rgb(42, 42, 65);}
+.flextry{display: flex;justify-content:space-between;}
+.btn{height: 0.5cm;width: 2cm; background-color: rgb(50, 158, 158);}
+
+#Aplayerslist{color: rgb(12, 12, 3);  width: 25%;float: left;border-style: solid;border-width: 2px;background-image: url('./wall1.jpg');}
+.black{ height: 100%; width: 100%;   background-color: rgba(0, 0, 0, 1);}
+#popup{width: 40%;color: rgb(147, 220, 253);text-align: center;border-style: solid;border-width: 2px;font-weight: 300;}
+.msg{border-style: solid; border-width: 2px; margin: 20px;}
+#Bplayerslist{ color: rgb(2, 2, 1);  width: 25%; float: right; border-style: solid;border-width: 2px;background-image: url('./wall1.jpg')}
+.black{ height: 100%; width: 100%;   background-color: rgba(0, 0, 0, 0.3);}
+.playbutton{display: flex; justify-content: space-around;}
+.playbutton>button{background-color:rgb(20, 100, 167);color: white;padding: 15px 20px;margin: 20px ;border: none;border-radius: 4px;cursor: pointer; font-size: 20px;}
+.msg{font-size: 40px;font-weight: bolder;background-color: yellow;color: black; }
+input[type=button]{
+    background-color:#09173C ;
+    border: 2px solid white;
+    border-radius: 40px;
+    width: 20%;
+    color: white;
+    padding: 10Px;
+    cursor: pointer;
+    }    
+    input[type=button]:hover {
+        background-color: white;
+        color:#17795E;
+      } 
