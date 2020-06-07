@@ -30,7 +30,7 @@ class Enterteam extends Component {
       <div className="Enterteam">
         <h1>SELECT ONE OPTION</h1>
         <select value={this.state.condition} onChange={this.handleSELECT}>
-          <option value="default"></option>
+          <option value="default">select one option</option>
           <option value="enter">ENTER PLAYERS</option>
           <option value="select">SELECT PLAYERS</option>
         </select>

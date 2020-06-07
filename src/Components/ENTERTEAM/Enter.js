@@ -5,22 +5,27 @@ class Enter extends Component {
   constructor(props){
     super(props);
     this.state={
-      players:[]
+      playersTA:[],playersTB:[]
   }}
-  handlePlayers=(data)=>{
+  handlePlayersA=(data)=>{
     data.id=Math.random();
-    const arr =[...this.state.players,data];
-    this.setState({players:arr})
+    const arrA =[...this.state.playersTA,data];
+    this.setState({playersTA:arrA})
+  }
+  handlePlayersB=(data)=>{
+    data.id=Math.random();
+    const arrB =[...this.state.playersTB,data];
+    this.setState({playersTB:arrB})
   }
   render() {
     return (
       <div>
-      <Select players={this.state.players} />
-      <Add add={this.handlePlayers}/>
+      <Select playersTA={this.state.playersTA} playersTB={this.state.playersTB}/>
+      <Add addA={this.handlePlayersA} addB={this.handlePlayersB}/>
         
       </div>
     )
   }
-}
+} 
 
 export default Enter;

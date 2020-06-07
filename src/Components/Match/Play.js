@@ -8,9 +8,9 @@ class play extends Component {
   state={ANames:[],Aplayers:[],Bplayers:[],BNames:[],score:0,total:0  }
   heandlebatting=(e)=>{
     const run = Math.floor(Math.random() *7);
-  
-    this.setState({ score: this.state.score=run });
-  this.setState({total: this.state.total+run})}
+    this.setState({ score:run });
+  this.setState({total: this.state.total+run})
+}
 componentDidMount(){
   axios.get('https://jsonplaceholder.typicode.com/users')
   .then(response =>{
