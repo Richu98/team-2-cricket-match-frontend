@@ -7,11 +7,11 @@ class Navbar extends Component {
       <div className="Navbar">
       <Link to="/" className="link">CRICKET MATCH</Link>
       <ul>
-      <li><Link to="/" className="link">HOME</Link></li>
-      <li><Link to="/Enterteam" className="link">ENTERTEAM</Link></li>
-      <li><Link to="/Toss" className="link">TOSS</Link></li>
-      <li><Link to="/Match" className="link">MATCH</Link></li>
-      <li><Link to="/Result" className="link">RESULT</Link></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
       </ul>
     </div>
     )

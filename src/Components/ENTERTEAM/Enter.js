@@ -16,7 +16,7 @@ class Enter extends Component {
     data.id=Math.random();
     const arrB =[...this.state.playersTB,data];
     this.setState({playersTB:arrB})
-  }
+  } 
   render() {
     return (
       <div>

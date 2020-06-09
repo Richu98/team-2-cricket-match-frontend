@@ -9,14 +9,14 @@ import './Select.css'
 
     return (
       <div className="Select">
-      <div>
+      <div className="input">
       {
-        playerA.map(data=>{return(<div>
+        playerA.map(data=>{return(<div key={data.id}>
           <h1>{data.name}</h1>
         </div>)})
-      }
+      } 
       </div>
-      <div>
+      <div className="input">
       {
         playerB.map(data=>{return(<div>
           <h1>{data.name}</h1>
