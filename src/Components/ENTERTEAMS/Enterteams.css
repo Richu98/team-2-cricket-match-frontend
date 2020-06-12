@@ -1,4 +1,4 @@
-.ENTERTEAMS{margin: 5%; align-items: center;}
+.ENTERTEAMS{margin: 5%; align-items: center;background-repeat: no-repeat;height: 100vh;}
 .Enter{display: flex;justify-content:space-evenly;border: black;}
 .Tinput{ margin: 0 20px;width: 60%;}
 .Pnames{ margin:0 20px; display: flex;justify-content:space-between;}
@@ -11,10 +11,26 @@
 /*.Tinput{display: flex;justify-content: space-around;}*/
 .Tlist{list-style-type: none;cursor: pointer;}
 .Tlist>li{float: left;margin:5% 0 5% 0; color:#FF5D00;text-shadow:2px 2px 1px whitesmoke ;}
+input[type=button]{ background-color:#A5066A ;
+    border: 2px solid rgb(245, 240, 240);
+    border-radius: 40px;
+    width: 25%;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    float: right;
+    }    
+
+    input[type=button]:hover {
+        background-color: white;
+        color:#A5066A;
+      } 
 @media(max-width: 850px){
     .ENTERTEAMS{font-size: 12px;}
     .Enter{flex-direction:column;}
     .Tinput{font-size: 10px;}
     .ETeamIN>.EINPUT>form>input[type=text]{width:40%;padding: 3px;}
     .ETeamIN>.EINPUT>form>button{width:30%;padding: 3px;}
-}
+    .Tlist>li{flex-direction: column;}
+    input[type=button]{font-size:12px;}
+} 

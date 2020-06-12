@@ -5,13 +5,17 @@ import axios from 'axios';
 import { Route } from 'react-router-dom';
 import Play from '../Match/Play';
 
-
+const TALINK='https://api-cricket-match.herokuapp.com/team/getTeam/5ee046a6b158c33dfc8718e4'
 class Enterteams extends Component {
+
   handlePLAY = () => { this.props.history.push('/Match'); }
   state = {
-    ANames: [], Aplayers: [], Bplayers: [], BNames: [], enter: 1, try: 2, condition: null, change: false, Schange: false,
-    TeamA: '', TeamB: '', TEamA: null, TEamB: null,TEAMAinput:false,TEAMBinput:false
+    ANames: [], Aplayers: [], Bplayers: [], BNames: [], enter: 1, try: 2, condition: null,
+     change: false, Schange: false,TeamA: '', TeamB: '', TEamA: null, TEamB: null, 
+     TEAMAinput: false, TEAMBinput: false,
+     
   }
+
   handle = (e) => { alert('sucessfully submitted') }
   componentDidMount() {
     axios.get('https://api-cricket-match.herokuapp.com/team/getTeam/5ee046a6b158c33dfc8718e4')
@@ -30,9 +34,9 @@ class Enterteams extends Component {
       })
   }
   handleChangeTEA = (e) => { this.setState({ TeamA: e.target.value }) }
-  handleSubmitTEAS = (e) => { e.preventDefault(); this.setState({ TEamA: this.state.TeamA });this.setState({TEAMAinput:true}) }
+  handleSubmitTEAS = (e) => { e.preventDefault(); this.setState({ TEamA: this.state.TeamA }); this.setState({ TEAMAinput: true }) }
   handleChangeTEB = (e) => { this.setState({ TeamB: e.target.value }) }
-  handleSubmitTEBS = (e) => { e.preventDefault(); this.setState({ TEamB: this.state.TeamB });this.setState({TEAMBinput:true}) }
+  handleSubmitTEBS = (e) => { e.preventDefault(); this.setState({ TEamB: this.state.TeamB }); this.setState({ TEAMBinput: true }) }
   handlecallbackE = (data) => { this.setState({ Schange: data }) }
   handleclickA = (e) => {
     this.setState({ change: true })
@@ -43,14 +47,14 @@ class Enterteams extends Component {
     this.setState({ BNames: this.state.Bplayers });
   }
   render() {
-    const enterdata = { display: '' }
+    const enterdata = {display: '' }
     const selectdata = { display: '' }
     if (this.state.change) { enterdata.display = 'none' }
     if (this.state.Schange) { selectdata.display = 'none' }
-    const TEamAinput={display:''}
-    if(this.state.TEAMAinput){TEamAinput.display='none'}
-    const TEamBinput={display:''}
-    if(this.state.TEAMBinput){TEamBinput.display='none'}
+    const TEamAinput = { display: '' }
+    if (this.state.TEAMAinput) { TEamAinput.display = 'none' }
+    const TEamBinput = { display: '' }
+    if (this.state.TEAMBinput) { TEamBinput.display = 'none' }
     const APlayers = this.state.ANames ?
       (
         <div>
@@ -129,14 +133,14 @@ class Enterteams extends Component {
               </div>
               <h1 id="EPN">ENTER PLAYERS NAME</h1>
               <div className="TEnter">
-                <h4>ADD PLAYERS FOR 1ST TEAM</h4>
-                <h4>ADD PLAYERS FOR 2ND TEAM</h4>
+
+
               </div>
-              <div ><Enter Ecallback={this.handlecallbackE} /></div>
+              <div ><Enter Ecallback={this.handlecallbackE} TEAMANAME={this.state.TeamA} TEAMBNAME={this.state.TeamB}/></div>
             </div>
           </div>
         </div>
-        <input type="button" value="LETS PLAY......" onClick={this.handlePLAY}></input>
+        <input type="button" value="LETS PLAY >>>" onClick={this.handlePLAY}></input>
         <Route path="/Match" component={Play} />
       </div>
     )
