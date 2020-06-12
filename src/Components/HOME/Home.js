@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './Home.css'
-import logo from './home.jpeg'
+import Enterteams from '../ENTERTEAMS/Enterteams';
 import { Route } from 'react-router-dom';
-import Enterteam from '../ENTERTEAM/Enterteam';
+
 import Instruction from '../INSTRUCTIONS/Instruction';
 class Home extends Component {
   handleINSTRUCT = () => { this.props.history.push('/Instruction'); }
-  handleSTART = () => { this.props.history.push('/Enterteam'); }
+  handleSTART = () => { this.props.history.push('/Enterteams'); }
   render() {
     return (
       <div className="Hwrap">
@@ -30,8 +30,8 @@ class Home extends Component {
                 <div className="Gstart">
                   <input type="button" className="btn" value="INSTRUCTION" onClick={this.handleINSTRUCT}></input>
                   <Route path="/Instruction" component={Instruction} />
-                  <input type="button" value="Lets Play" onClick={this.handleSTART}></input>
-                  <Route path="/Enterteam" component={Enterteam} />
+                  <input type="button" value="Let Start" onClick={this.handleSTART}></input>
+                  <Route path="/Enterteams" component={Enterteams} />
                 </div>
 
               </div>
