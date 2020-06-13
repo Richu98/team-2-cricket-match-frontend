@@ -2,20 +2,12 @@ import React, { Component } from 'react'
 import './Add.css'
 
 class Add extends Component {
-  state = { name: null, id: null, InputCon: false, countone: 0, counttwo: 0 }
+  state = { name: null, id: null, countone: 0, counttwo: 0 }
   handleChangeTA = (e) => {
-
-    const { callback } = this.props
-    callback(this.state.InputCon)
-    this.setState({ InputCon: true });
     return (this.setState({ [e.target.id]: e.target.value }));
 
   }
   handleChangeTB = (e) => {
-
-    const { callback } = this.props
-    callback(this.state.InputCon)
-    this.setState({ InputCon: true });
     return (this.setState({ [e.target.id]: e.target.value }))
   }
   handleSubmitA = (e) => {

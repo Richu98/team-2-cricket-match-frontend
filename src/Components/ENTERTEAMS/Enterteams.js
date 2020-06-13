@@ -32,11 +32,10 @@ class Enterteams extends Component {
         this.setState({ Bplayers: resp.data.team });
       })
   }
-  handleChangeTEA = (e) => { this.setState({ TeamA: e.target.value }) }
+  handleChangeTEA = (e) => { this.setState({ TeamA: e.target.value }); this.setState({ Schange: true }) }
   handleSubmitTEAS = (e) => { e.preventDefault(); this.setState({ TEamA: this.state.TeamA }); this.setState({ TEAMAinput: true }) }
-  handleChangeTEB = (e) => { this.setState({ TeamB: e.target.value }) }
+  handleChangeTEB = (e) => { this.setState({ TeamB: e.target.value });this.setState({ Schange: true }) }
   handleSubmitTEBS = (e) => { e.preventDefault(); this.setState({ TEamB: this.state.TeamB }); this.setState({ TEAMBinput: true }) }
-  handlecallbackE = (data) => { this.setState({ Schange: data }) }
   handleclickA = (e) => {
     this.setState({ change: true })
     this.setState({ ANames: this.state.Aplayers });
@@ -59,7 +58,7 @@ class Enterteams extends Component {
         <div>
           <div>
             {this.state.ANames.map(data => {
-              return (<ul type="none" >
+              return (<ul type="none" className="PLYN">
 
                 <li><h2>{data.name}</h2></li>
 
@@ -77,7 +76,7 @@ class Enterteams extends Component {
         <div>
           <div>
             {this.state.BNames.map(data => {
-              return (<ul type="none">
+              return (<ul type="none" className="PLYN">
                 <li><h2>{data.name}</h2></li>
 
               </ul>
@@ -98,10 +97,10 @@ class Enterteams extends Component {
             <h1>SELECT TEAM</h1> <br></br>
             <div>
               <ol className='Tlist' >
-                <li onClick={this.handleclickA}><h2>RoyalChallengers of Banglore</h2></li><br></br>
-                <li onClick={this.handleclickB}><h2>Chennai Super Kings</h2></li><br></br>
-                <li onClick={this.handleclickA}><h2>Mumbai Indians</h2></li><br></br>
-                <li onClick={this.handleclickB}><h2>Rajasthan Royals</h2></li><br></br>
+                <li onClick={this.handleclickA}><h2>SUNRISERS HYDERABAD</h2></li><br></br>
+                <li onClick={this.handleclickB}><h2>CHENNI SUPER KINGS</h2></li><br></br>
+                <li onClick={this.handleclickA}><h2>MUMBAI INDIANS</h2></li><br></br>
+                <li onClick={this.handleclickB}><h2>RAJASTHAN ROYALS</h2></li><br></br>
               </ol>
             </div>
           </div>
@@ -135,7 +134,7 @@ class Enterteams extends Component {
 
 
               </div>
-              <div ><Enter Ecallback={this.handlecallbackE} TEAMANAME={this.state.TeamA} TEAMBNAME={this.state.TeamB}/></div>
+              <div ><Enter TEAMANAME={this.state.TeamA} TEAMBNAME={this.state.TeamB}/></div>
             </div>
           </div>
         </div>

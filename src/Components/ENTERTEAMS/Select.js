@@ -5,10 +5,14 @@ class Select extends Component {
 
 
   render() {
+    console.log("checking");
     console.log(this.props);
     const playerA = this.props.playersTA;
     const playerB = this.props.playersTB;
 
+const nameone=playerA.map(data=>{return(data.name)})
+console.log("checktwo");
+console.log(nameone);
     return (
       <div className="SELECT">
 
@@ -19,7 +23,7 @@ class Select extends Component {
             {
               playerA.map(data => {
                 return (<div key={data.id}>
-                  <h1>{data.name}</h1>
+                  <h2>{data.name}</h2>
                 </div>)
               })
             }
@@ -29,7 +33,7 @@ class Select extends Component {
             {
               playerB.map(data => {
                 return (<div key={data.id}>
-                  <h1>{data.name}</h1>
+                  <h2>{data.name}</h2>
                 </div>)
               })
             }
