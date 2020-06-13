@@ -121,24 +121,24 @@ class play extends Component {
     return (
       <div className='Pbasic'>
         <div id="details">
-            <h1 className="Pheading"><b><center>TEAM A VS TEAM B</center></b></h1>
+            <h1 className="Pheading"><b><center>R.C.B VS M.I.</center></b></h1>
         </div>
 
         <div className="playbutton">
-           <div style={BTNone}><button id="Pbtn" onClick={this.handlebattingA}>BATTING A</button></div>
+           <div style={BTNone}><button id="Pbtn" onClick={this.handlebattingA}>BATTING R.C.B</button></div>
           
-           <div style={BTNtwo}><button id="Pbtn" onClick={this.handlebattingB}>BATTING B</button></div>
+           <div style={BTNtwo}><button id="Pbtn" onClick={this.handlebattingB}>BATTING M.I.</button></div>
         </div>
        
         <div>
            <div  className="Pflextry">
               <div className="playersA">
-                    <h1 className="head"><center><b>TEAM A</b></center></h1>
+                    <h1 className="head"><center><b>TEAM R.C.B</b></center></h1>
                     <h5 className="list">{APlayers}</h5>
               </div>
           <div className="Pscorepop">
-                 <div className="Pmsg"><b>TEAM A Run: {this.state.scoreA}</b><br></br><b>TEAM A Total: {this.state.totalA}</b></div><br></br>
-                 <div className="Pmsg"><b>TEAM B Run: {this.state.scoreB}</b><br></br><b> TEAM B Total: {this.state.totalB}</b></div>
+                 <div className="Pmsg"><b>R.C.B Run: {this.state.scoreA}</b><br></br><b>R.C.B Total: {this.state.totalA}</b></div><br></br>
+                 <div className="Pmsg"><b>M.I. Run: {this.state.scoreB}</b><br></br><b> M.I. Total: {this.state.totalB}</b></div>
              <div className="PresultShow">
                   <button className="Pclick" onClick={this.handleRESULT}>RESULT</button>
                      <Route path="/Result" component={Result} />
@@ -146,7 +146,7 @@ class play extends Component {
                  
           </div>
              <div className="playersB">
-                 <h1 className="head"><center><b>TEAM B</b></center></h1>
+                 <h1 className="head"><center><b>TEAM M.I.</b></center></h1>
                  <h5 className="list">{BPlayers}</h5>
               </div>
             </div>
