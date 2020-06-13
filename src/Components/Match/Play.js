@@ -1,118 +1,177 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './Play.css'
-import Result from '../RESULT/Result'
+import Result from '../RESULTS/Result'
 class play extends Component {
-  handleRESULT=()=>{this.props.history.push('/Result');}
-  state={ANames:[],Aplayers:[],Bplayers:[],BNames:[],scoreA:0,totalA:0,scoreB:0,totalB:0,incrementA:0,incrementB:0}
-  handlebattingA=()=>{
-    this.state.incrementA++
-     if(this.state.incrementA<=6){
+  handleRESULT = () => { this.props.history.push('/Result'); 
+}
+  state = { ANames: [], Aplayers: [], Bplayers: [], BNames: [], scoreA: 0, totalA: 0, scoreB: 0, totalB: 0, incrementA: 0, incrementB: 0, idA: null, idB: null, Pbtn1: false, Pbtn2: false }
+   handlebattingA = () => {
+     this.state.incrementA++
+       if (this.state.incrementA <= 6) {
+          const runA = Math.floor(Math.random() * 6);
+          this.setState({ scoreA: this.state.scoreA = runA });
+          this.setState({ totalA: this.state.totalA + runA });
+
+        }    else {
+                 this.setState({ Pbtn1: this.state.Pbtn1 = true })
+                alert('Your one over is completed');
+        }
+             console.log(this.state.totalA);
+
+    }
+  handlebattingB = () => {
+       this.state.incrementB++
+        if (this.state.incrementB <= 6) {
+              const runB = Math.floor(Math.random() * 6);
+              this.setState({ scoreB: this.state.scoreB = runB });
+              this.setState({ totalB: this.state.totalB + runB });
+
+        } else {
+               this.setState({ Pbtn2: this.state.Pbtn2 = true })
+              alert('your one over is completed')
+    }
+
+       console.log(this.state.totalB);
+
+
     
-      //const run = Math.floor(Math.random()*6);
-      //for (let i = 0; i <=6; i++) {
-      const runa = Math.floor(Math.random()*6);
-      this.setState({ scoreA: this.state.scoreA= runa });
-      this.setState({totalA: this.state.totalA+ runa});
+
   }
-     console.log(this.state.totalA);
-  
+    componentWillUnmount() {
+    const finalScoreA = {
+      "_id": "5ee046a6b158c33dfc8718e4",
+      "score": this.state.totalA
+    }
+      axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreA)
+       .then((finalScoreA) => {
+          console.log(finalScoreA);
+        })
+    const finalScoreB = {
+      "_id": "5ee04522b158c33dfc8718d7",
+      "score": this.state.totalB
+    }
+    axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreB)
+      .then((finalScoreB) => {
+        console.log(finalScoreB);
+      })
+    console.log(finalScoreA, finalScoreB);
+
+
+
+
   }
 
-   
-  handlebattingB=()=>{
-    this.state.incrementB++
-     if(this.state.incrementB<=6){
-    
-      //const run = Math.floor(Math.random()*6);
-      //for (let i = 0; i <=6; i++) {
-      const runb = Math.floor(Math.random()*6);
-      this.setState({ scoreB: this.state.scoreB= runb });
-      this.setState({totalB: this.state.totalB+ runb});
+
+  componentDidMount() {
+    axios.get('https://api-cricket-match.herokuapp.com/team/getTeam/5ee046a6b158c33dfc8718e4')
+      .then(response => {
+        console.log(response)
+        this.setState({ Aplayers: response.data.team.slice(0, 11) });
+      })
+      .catch(error => {
+        console.log(error)
+      }
+      )
+    axios.get('https://api-cricket-match.herokuapp.com/team/getTeam/5ee04522b158c33dfc8718d7')
+      .then(response => {
+        console.log(response)
+        this.setState({ Bplayers: response.data.team.slice(0, 11) });
+      })
   }
-     console.log(this.state.totalB);
-    
-  }
-  componentDidMount(){
-  axios.get('https://jsonplaceholder.typicode.com/users')
-  .then(response =>{
-      console.log(response)
-      this.setState({Aplayers: response.data.slice(0,10)});
-  })
-  .catch(error => {
-      console.log(error)
-  }
-  )
-  axios.get('https://jsonplaceholder.typicode.com/users')
-  .then(resp =>{
-      console.log(resp)
-      this.setState({Bplayers: resp.data.slice(0,10)});
-  })
-}
+
+
+
 
   render() {
-    const APlayers = this.state.ANames ?
-        (
-            <div>
-              <div className="black">
-            {this.state.Aplayers.map(data =>{
-                return(<ul type="square" >
-                    <li><h2><b>{data.name}</b></h2></li>
-                
-                    </ul>)})}
-                </div>
-            </div>
-        ) : 
-        (<div>loading data .....</div>);
-        const BPlayers = this.state.BNames ?
-        (
-            <div>
-            <div className="black">
-            {this.state.Bplayers.map(data =>{
-                return(<ul type="square">
-                    <li><h2><b>{data.name}</b></h2></li>
-                
-                    </ul>
-                    )})}
-                </div>
-                 
-            </div>
-        ) : 
-        (<div>loading data .....</div>);
-        
-       return (
-       <div className='basic'>
-       <div className='black'>
-          <div id="details">
-          <div className="black">
-               <h1 id="heading">INDIAN PREMIER LEAGUE</h1>
-               <h1>TEAM A VS TEAM B</h1>
+    const BTNone = { display: '' }
+       if (this.state.Pbtn1) { BTNone.display = 'none' }
+    const BTNtwo = { display: '' }
+        if (this.state.Pbtn2) { BTNtwo.display = 'none' }
 
+    const APlayers = this.state.ANames ?
+      (
+        <div className="Ptext1">
+
+          {this.state.Aplayers.map(data => {
+            return (<ul type="none"><li><h2><b>{data.name}</b></h2></li></ul>
+            )
+          })}
+
+        </div>
+      ) :
+      (<div>loading data .....</div>);
+    const BPlayers = this.state.BNames ?
+      (
+        <div className="Ptext2">
+
+          {this.state.Bplayers.map(data => {
+            return (<ul type="none"><li><h2><b>{data.name}</b></h2></li></ul>
+            )
+          })}
+
+
+        </div>
+      ) :
+      (<div>loading data .....</div>);
+
+
+
+    return (
+      <div className='Pbasic'>
+        <div id="details">
+            <h1 className="Pheading"><b><center>TEAM A VS TEAM B</center></b></h1>
+        </div>
+
+        <div className="playbutton">
+           <div style={BTNone}><button id="Pbtn" onClick={this.handlebattingA}>BATTING A</button></div>
+          
+           <div style={BTNtwo}><button id="Pbtn" onClick={this.handlebattingB}>BATTING B</button></div>
+        </div>
+       
+        <div>
+           <div  className="Pflextry">
+              <div className="playersA">
+                    <h1 className="head"><center><b>TEAM A</b></center></h1>
+                    <h5 className="list">{APlayers}</h5>
+              </div>
+          <div className="Pscorepop">
+                 <div className="Pmsg"><b>TEAM A Run: {this.state.scoreA}</b><br></br><b>TEAM A Total: {this.state.totalA}</b></div><br></br>
+                 <div className="Pmsg"><b>TEAM B Run: {this.state.scoreB}</b><br></br><b> TEAM B Total: {this.state.totalB}</b></div>
+             <div className="PresultShow">
+                  <button className="Pclick" onClick={this.handleRESULT}>RESULT</button>
+                     <Route path="/Result" component={Result} />
+              </div>
+                 
+          </div>
+             <div className="playersB">
+                 <h1 className="head"><center><b>TEAM B</b></center></h1>
+                 <h5 className="list">{BPlayers}</h5>
+              </div>
             </div>
-          </div> 
-          <div className="flextry">
-               <div id="Aplayerslist"><h1><center><b>TEAM A</b></center></h1>{APlayers}</div>
-               <div id="popup"> 
-                    <div className="playbutton">
-                    <button id="btn1" onClick={this.handlebattingA}>BATTING A</button>
-                    <button id="btn2" onClick={this.handlebattingB}>BATTING B</button>  
-                    </div>
-                    <div className="msg"><b>run scored by TEAM A : {this.state.scoreA}</b><br></br><b>Total scored of TEAM A : {this.state.totalA}</b></div>
-                    <div className="msg"><b>run scored by TEAM B : {this.state.scoreB}</b><br></br><b>Total scored of TEAM B: {this.state.totalB}</b></div>
-                    <input type="button" value="RESULT" onClick={this.handleRESULT}></input>
-                   <Route path="/Result" component={Result}/>
-                </div>
-                <div id="Bplayerslist"><h1><center><b>TEAM B</b></center></h1>{BPlayers}</div>
-                
-          </div> 
-          </div>   
+          
+        </div>
       </div>
     )
+
   }
-  
-} 
+
+}
 
 export default play
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

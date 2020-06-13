@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Route } from 'react-router-dom';
 import Play from '../Match/Play';
 
-const TALINK='https://api-cricket-match.herokuapp.com/team/getTeam/5ee046a6b158c33dfc8718e4'
 class Enterteams extends Component {
 
   handlePLAY = () => { this.props.history.push('/Match'); }

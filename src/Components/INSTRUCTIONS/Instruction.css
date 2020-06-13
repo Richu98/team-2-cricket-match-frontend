@@ -10,4 +10,10 @@ input[type=button]{
     input[type=button]:hover {
         background-color: white;
         color:#A5066A;
-      } 
+      }  
+
+      @media (max-width: 850px){
+        .INSTRUCT{font-size: 10px;}
+        
+
+      }

@@ -28,7 +28,7 @@ class Home extends Component {
 
                 {/*buttons for INSTRUCTIONS and START are created*/}
                 <div className="Gstart">
-                  <input type="button" className="btn" value="INSTRUCTION" onClick={this.handleINSTRUCT}></input>
+                  <input type="button" className="btn" value="INSTRUCTION" onClick={this.handleINSTRUCT}></input><br></br><br></br>
                   <Route path="/Instruction" component={Instruction} />
                   <input type="button" value="Let Start" onClick={this.handleSTART}></input>
                   <Route path="/Enterteams" component={Enterteams} />
