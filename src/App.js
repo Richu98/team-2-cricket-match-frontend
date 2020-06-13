@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './App.css'
 import {BrowserRouter,Route} from 'react-router-dom';
-import Navbar from './Components/NAVBAR/Navbar';
+//import Navbar from './Components/NAVBAR/Navbar';
 import Home from './Components/HOME/Home';
 //import Enterteam from './Components/ENTERTEAM/Enterteam';
 import Toss from './Components/TOSS/Toss';
 import Play from './Components/Match/Play';
-import Result from './Components/RESULT/Result';
+import Result from './Components/RESULTS/Result';
 import Instruction from './Components/INSTRUCTIONS/Instruction';
 import Enterteams from './Components/ENTERTEAMS/Enterteams'
 class App extends Component{
@@ -15,7 +15,7 @@ render(){
     <BrowserRouter>
     <div className='App'>
 
-    <Navbar />
+    
     <Route exact path="/" component={Home}/>
     
     <Route path="/Enterteams" component={Enterteams}/>
