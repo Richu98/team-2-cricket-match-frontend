@@ -15,6 +15,15 @@ class play extends Component {
           this.setState({ totalA: this.state.totalA + runA });
 
         }    else {
+          const finalScoreA = {
+            "_id": "5ee046a6b158c33dfc8718e4",
+            "score": this.state.totalA
+          }
+            axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreA)
+             .then((finalScoreA) => {
+                console.log(finalScoreA);
+              })
+          
                  this.setState({ Pbtn1: this.state.Pbtn1 = true })
                 alert('Your one over is completed');
         }
@@ -29,6 +38,15 @@ class play extends Component {
               this.setState({ totalB: this.state.totalB + runB });
 
         } else {
+          const finalScoreB = {
+            "_id": "5ee04522b158c33dfc8718d7",
+            "score": this.state.totalB
+          }
+          axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreB)
+            .then((finalScoreB) => {
+              console.log(finalScoreB);
+            })
+          //console.log(finalScoreA, finalScoreB);
                this.setState({ Pbtn2: this.state.Pbtn2 = true })
               alert('your one over is completed')
     }
@@ -39,29 +57,7 @@ class play extends Component {
     
 
   }
-    componentWillUnmount() {
-    const finalScoreA = {
-      "_id": "5ee046a6b158c33dfc8718e4",
-      "score": this.state.totalA
-    }
-      axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreA)
-       .then((finalScoreA) => {
-          console.log(finalScoreA);
-        })
-    const finalScoreB = {
-      "_id": "5ee04522b158c33dfc8718d7",
-      "score": this.state.totalB
-    }
-    axios.put('https://api-cricket-match.herokuapp.com/stadium/scoreUpdates', finalScoreB)
-      .then((finalScoreB) => {
-        console.log(finalScoreB);
-      })
-    console.log(finalScoreA, finalScoreB);
-
-
-
-
-  }
+   
 
 
   componentDidMount() {
@@ -141,13 +137,14 @@ class play extends Component {
                  <div className="Pmsg"><b>M.I. Run: {this.state.scoreB}</b><br></br><b> M.I. Total: {this.state.totalB}</b></div>
              <div className="PresultShow">
                   <button className="Pclick" onClick={this.handleRESULT}>RESULT</button>
-                     <Route path="/Result" component={Result} />
+                     
               </div>
                  
           </div>
              <div className="playersB">
                  <h1 className="head"><center><b>TEAM M.I.</b></center></h1>
                  <h5 className="list">{BPlayers}</h5>
+                 
               </div>
             </div>
           

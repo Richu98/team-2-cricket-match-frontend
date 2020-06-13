@@ -8,9 +8,9 @@ class Enter extends Component {
     this.state={
       playersTA:[],
       playersTB:[],
-      InputCon:null,
       EteamNameA:[{teamName:'RCB',players:[{name:'jatin'}]}],
-      EteamNameB:[]
+      EteamNameB:[{teamName:'',players:[{name:''}]}]
+
   }}
  componentDidMount(){
    axios.post('https://api-cricket-match.herokuapp.com/team/createTeam',this.state.EteamNameA)
@@ -39,10 +39,12 @@ class Enter extends Component {
     const arrB =[...this.state.playersTB,data];
     this.setState({playersTB:arrB})
   } 
-  handlecallback=(data)=>{
-    const {Ecallback}=this.props
-    Ecallback(this.state.InputCon)
-    this.setState({InputCon:data})}
+  passon=(e)=>{
+      e.preventDefault();
+      const name=this.state.playersTA.map(data=>{return(<div name={data.name}>
+        <h1></h1></div>)})
+        this.setState()
+    }
   render() {
     /*console.log(this.props);
     const TEAMtutA=this.props.TEAMANAME
@@ -54,12 +56,13 @@ class Enter extends Component {
     return (
       <div> 
       {console.log(TApass)}
-      <Add addA={this.handlePlayersA} addB={this.handlePlayersB} callback={this.handlecallback}/>
+      <Add addA={this.handlePlayersA} addB={this.handlePlayersB}/>
       <Select playersTA={this.state.playersTA} playersTB={this.state.playersTB}/>
         {this.props.TEAMtutA}
         {this.props.TEAMtutB}
+        <button onClick={this.passon}>submit</button>
       </div>
-    )
+    ) 
   }
 } 
 

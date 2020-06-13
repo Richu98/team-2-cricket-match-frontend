@@ -32,7 +32,7 @@ import axios from 'axios'
     
      }
    } 
-    showscore=(e)=>{window.location.reload()}
+    //showscore=(e)=>{window.location.reload()}
     render() {
         
         return (
@@ -44,7 +44,7 @@ import axios from 'axios'
                        <div className="versus"><h1>Vs</h1></div>
                        <div className="shape"><h1>M.I.</h1></div>
                    </div>
-                   <button className="display" onClick={this.showscore}><h3>Show Score</h3></button>
+                  {/* <button className="display" onClick={this.showscore}><h3>Show Score</h3></button>*/}
                    <div className="RScore">
                        <div className="shape2"><h1>Score of R.C.B: {this.state.Ascore}</h1></div>
                        <div className="shape2"><h1>Score of M.I: {this.state.Bscore}</h1></div>
