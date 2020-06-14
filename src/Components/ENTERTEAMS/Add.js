@@ -27,9 +27,9 @@ class Add extends Component {
     e.preventDefault();
     this.props.addA(this.state);
 
-    this.setState({...this.state,APMN:[...this.state.APMN,this.state.nobj]});
+   /* this.setState({...this.state,APMN:[...this.state.APMN,this.state.nobj]});
     console.log("Try Try Try Try TTTTTTT")
-    console.log(this.state.APMN)
+    console.log(this.state.APMN)*/
    
   }
   handleSubmitB = (e) => {
