@@ -2,17 +2,10 @@ import React, { Component } from 'react'
 import './Select.css'
 
 class Select extends Component {
-
-
   render() {
-    console.log("checking");
-    console.log(this.props);
     const playerA = this.props.playersTA;
     const playerB = this.props.playersTB;
 
-const nameone=playerA.map(data=>{return(data.name)})
-console.log("checktwo");
-console.log(nameone);
     return (
       <div className="SELECT">
 
