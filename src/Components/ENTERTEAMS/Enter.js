@@ -8,11 +8,11 @@ class Enter extends Component {
     this.state={
       playersTA:[],
       playersTB:[],
-      EteamNameA:[{teamName:'RCB',players:[{name:'jatin'}]}],
-      EteamNameB:[{teamName:'',players:[{name:''}]}]
+      EteamNameA:{teamName:'MUMBAI INDIANS',players:[{name:'jatin'},{name:'akansha'},{name:'sheetal'},{name:'kabir'}]},
+      EteamNameB:{teamName:'',players:[{name:''}]}
 
   }}
- componentDidMount(){
+ /*componentDidMount(){
    axios.post('https://api-cricket-match.herokuapp.com/team/createTeam',this.state.EteamNameA)
   .then(response => {
     console.log(response)
@@ -24,14 +24,13 @@ class Enter extends Component {
  /* axios.post('https://api-cricket-match.herokuapp.com/team/createTeam',this.state.EteamNameB)
   .then(response => {
     console.log(response)
-      })*/
-
-  }
+      })
+  }*/
   handlePlayersA=(data)=>{
     data.id=Math.random();
     const arrA =[...this.state.playersTA,data];
     this.setState({playersTA:arrA})
-    console.log(this.props.TApassA)
+   // console.log(this.props.TApassA)
     //console.log(...this.state.InputCon,daata)
   }
   handlePlayersB=(data)=>{
@@ -39,28 +38,29 @@ class Enter extends Component {
     const arrB =[...this.state.playersTB,data];
     this.setState({playersTB:arrB})
   } 
-  passon=(e)=>{
-      e.preventDefault();
-      const name=this.state.playersTA.map(data=>{return(<div name={data.name}>
-        <h1></h1></div>)})
-        this.setState()
-    }
+  
+ // passon=(e)=>{
+    /* NM=this.
+    let NMobj={name:NM}
+    this.setState({...this.state,APMN:[...this.state.APMN,NMobj]});
+    console.log("nnnnnnnnn");
+    console.log(this.state.APMN)*/
+   // }
   render() {
     /*console.log(this.props);
     const TEAMtutA=this.props.TEAMANAME
     const TEAMtutB=this.props.TEAMBNAME;*/
 
-    const TApass=this.state.playersTA.map(data=>{return(<div name={data.name}>
+    /*const TApass=this.state.playersTA.map(data=>{return(<div name={data.name}>
       <h1></h1></div>)})
-    const TBpass=this.state.playersTB
+    const TBpass=this.state.playersTB*/
     return (
       <div> 
-      {console.log(TApass)}
       <Add addA={this.handlePlayersA} addB={this.handlePlayersB}/>
       <Select playersTA={this.state.playersTA} playersTB={this.state.playersTB}/>
         {this.props.TEAMtutA}
         {this.props.TEAMtutB}
-        <button onClick={this.passon}>submit</button>
+        
       </div>
     ) 
   }

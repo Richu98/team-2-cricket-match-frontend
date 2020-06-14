@@ -2,24 +2,45 @@ import React, { Component } from 'react'
 import './Add.css'
 
 class Add extends Component {
-  state = { name: null, id: null, countone: 0, counttwo: 0 }
+  state = { name: null, id: null, countone: 0, counttwo: 0 ,APMN:[],NM:null,nobj:{name:null}}
   handleChangeTA = (e) => {
-    return (this.setState({ [e.target.id]: e.target.value }));
-
+    this.setState({NM:e.target.value})
+   let MMMM=this.state.nobj;
+   MMMM[e.target.value.name]=e.target.value;
+   this.setState({nobj:MMMM})
+   /* let NMobj={name:NM}
+    this.setState({...this.state,APMN:[...this.state.APMN,NMobj]});
+    console.log("nnnnnnnnn");
+    console.log(this.state.APMN)*/
+    return (this.setState({ [e.target.id]: e.target.value }));        
   }
   handleChangeTB = (e) => {
-    return (this.setState({ [e.target.id]: e.target.value }))
+   // this.setState({NM:e.target.value})
+   // this.setState({nobj:{...this.state.nobj,name:this.state.NM}})
+   //this.setState(Object.assign(this.state.nobj,{name:this.state.NM})); 
+   return (this.setState({ [e.target.id]: e.target.value }))
   }
+  //passooon=(e)=>{ }
   handleSubmitA = (e) => {
+    
     this.setState({ countone: this.state.countone + 1 });
     e.preventDefault();
     this.props.addA(this.state);
+
+    this.setState({...this.state,APMN:[...this.state.APMN,this.state.nobj]});
+    console.log("Try Try Try Try TTTTTTT")
+    console.log(this.state.APMN)
+   
   }
   handleSubmitB = (e) => {
     this.setState({ counttwo: this.state.counttwo + 1 });
     e.preventDefault();
     this.props.addB(this.state);
-  }
+
+    /*this.setState({...this.state,APMN:[...this.state.APMN,this.state.nobj]});
+    console.log("TTTTTTTTTTT")
+    console.log(this.state.APMN)
+  */  }
 
 
   render() {
@@ -49,8 +70,7 @@ class Add extends Component {
             </form>
           </div>
         </div>
-        {console.log(this.state.countone)}
-        {console.log(this.state.counttwo)}
+        {/*<button onClick={this.passooon}>submit</button>*/}
       </div>
     )
   }

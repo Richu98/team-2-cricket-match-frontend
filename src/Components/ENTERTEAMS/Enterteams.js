@@ -97,7 +97,7 @@ class Enterteams extends Component {
             <h1>SELECT TEAM</h1> <br></br>
             <div>
               <ol className='Tlist' >
-                <li onClick={this.handleclickA}><h2>SUNRISERS HYDERABAD</h2></li><br></br>
+                <li onClick={this.handleclickA}><h2>ROYAL CHALLENGERS BANGALORE</h2></li><br></br>
                 <li onClick={this.handleclickB}><h2>CHENNI SUPER KINGS</h2></li><br></br>
                 <li onClick={this.handleclickA}><h2>MUMBAI INDIANS</h2></li><br></br>
                 <li onClick={this.handleclickB}><h2>RAJASTHAN ROYALS</h2></li><br></br>

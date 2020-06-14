@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import './Result.css'
 import axios from 'axios'
+import Home from '../HOME/Home';
+import {Route} from 'react-router-dom';
  class Result extends Component {
+    handleHOME=()=>{this.props.history.push('/');}
      state={Aplayers:[],Ascore:0,Bscore:0,Difference:0,Team:'',WIN:'Win by :'}
     componentDidMount(){
         axios.get('https://api-cricket-match.herokuapp.com/team/getTeam/5ee046a6b158c33dfc8718e4')
@@ -55,6 +58,9 @@ import axios from 'axios'
                     <div className="RCongo">Whoopeeee..!!</div>
                      <div className="RFinal"> {this.state.Team} {this.state.WIN} {this.state.Difference} Runs</div>
                 </div>
+                <input type="button" value="GO HOME" onClick={this.handleHOME}></input>
+                <Route exact path="/" component={Home}/>
+        
             </div>
         )
     }
